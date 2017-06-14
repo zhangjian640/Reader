@@ -5,9 +5,34 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/index.css">
     <title><%= title %></title>
 </head>
 <body>
-<%= title %>
+<div class="channel-group_header">
+    <h2 class="channel-group_title"><%= title %></h2>
+</div>
+<ul class="list-h5" id="app">
+    <li v-for="item in male">
+        <div class="book-h5">
+            <div class="book-h5_cover">
+                <img :src="item.cover" :alt="item.title">
+                <div class="book-tag free-fiction">限免</div>
+            </div>
+            <div class="book-h5_info">
+                <p class="book-h5_title">{{item.title}}</p>
+                <p class="book-h5_author">{{item.author}}</p>
+                <p class="book-h5_summary">{{item.summary}}</p>
+                <div class="book-h5_wrap">
+                    <div class="book-h5_tag" v-for="tag in item.tags">{{tag}}</div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 </body>
+<script src="/static/script/zepto.min.js"></script>
+<script src="/static/script/vue.min.js"></script>
+<script src="/static/script/pages/male.js"></script>
 </html>

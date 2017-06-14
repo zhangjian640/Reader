@@ -3,13 +3,20 @@
     overflow: hidden;
     /*position: relative;*/
 }
+.container-wrap.active{
+    display: none;
+}
 .container-scroll{
     position: absolute;
     top:45px;
     bottom:0;
     left:0;
     right: 0;
-    overflow-y:auto;
+    overflow-y:scroll;
+    background: #fff;
+}
+.shelf-wrap.active {
+    display: none;
 }
 .header-tab{
     padding: 0 90px;
@@ -42,6 +49,7 @@
     left: 0;
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
+    transition-duration: 0.5s;
 }
 .header-tab .swipe-tab i{
     bottom: -1px;
@@ -393,4 +401,44 @@
     font: 13px/1.3em a;
     border-top: 1px solid #f0f0f0;
     text-align: center;
+}
+/*书架*/
+.shelf_top{
+    padding: 10px 20px 0;
+}
+.shelf_top, .shelf-search{
+    margin-right: 46px;
+}
+.shelf-search{
+    font-size: 12px;
+    color: #ccc;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    line-height:36px;
+    background: url(http://image.read.duokan.com/mfsv2/download/s010/p01TjruXIhgt/PP13pEqhpChuay.png) no-repeat 10px center;
+    background-size: 14px;
+    padding-left: 32px;
+}
+.shelf_switch{
+    width: 36px;
+    height: 36px;
+    float: right;
+    border-radius: 4px;
+    background:url(http://image.read.duokan.com/mfsv2/download/fdsc3/p014nDc0lHYW/lDeZ3lL4nmgnmf.png) no-repeat center;
+    background-size: 16px;
+    border: 1px solid #eee;
+}
+
+.shelf .book-list .u-book{
+    padding:13px 20px;
+    overflow: hidden;
+    position: relative;
+    width: auto;
+}
+.u-book .book-cover {
+    float: left;
+    margin-right: 10px;
+}
+.u-book .info {
+    padding-top: 1.2em;
 }

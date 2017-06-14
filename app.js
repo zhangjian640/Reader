@@ -59,10 +59,16 @@ app.use(controller.get('/rank', function *() {
     this.body = yield render('rank', {title: '排行'});
 }));
 
+// 阅读
+app.use(controller.get('/reader', function *() {
+    this.set('Cache-Control', 'no-cache');
+    this.body = yield render('reader');
+}));
+
 // 搜索
 app.use(controller.get('/search', function *() {
     this.set('Cache-Control', 'no-cache');
-    this.body = yield render('search', {title: '搜索'});
+    this.body = yield render('search', {nav: '搜索'});
 }));
 
 // book
@@ -70,7 +76,7 @@ app.use(controller.get('/book', function *() {
     this.set('Cache-Control', 'no-cache');
     var params = querystring.parse(this.req._parsedUrl.query);
     var bookId = params.id;
-    this.body = yield render('book', {bookId: bookId});
+    this.body = yield render('book',{nav:'书籍详情',bookId:bookId});
 }));
 
 // api 例子
@@ -142,8 +148,29 @@ app.use(controller.get('/ajax/book', function *() {
     this.set('Cache-Control', 'no-cache');
     var params = querystring.parse(this.req._parsedUrl.query); // 参数转化为obj
     var id = params.id;
+    if(!id){
+        id = "";
+    }
     this.body = service.get_book_data(id);
 }));
+
+// 阅读
+app.use(controller.get('/ajax/chapter_data', function *() {
+    this.set('Cache-Control', 'no-cache');
+    var params = querystring.parse(this.req._parsedUrl.query); // 参数转化为obj
+    var id = params.id;
+    if(!id){
+        id = "";
+    }
+    this.body = service.get_chapter_content_data(id);
+}));
+
+// 章节
+app.use(controller.get('/ajax/chapter', function *() {
+    this.set('Cache-Control', 'no-cache');
+    this.body = service.get_chapter_data();
+}));
+
 
 app.listen(3001);
 console.log('koa start at 3001');

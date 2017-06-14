@@ -3,36 +3,14 @@
         <h2 class="channel-group_title">限时免费</h2>
     </div>
     <ul class="book-lists">
-        <li>
+        <li v-for="item in free">
             <div class="book-item">
                 <div class="book-cover">
-                    <img src="http://cover.read.duokan.com/mfsv2/download/fdsc3/p018JfdElmhO/dXn0ucFVXpvWV4.jpg!s">
+                    <img :src="item.data.cover" :alt="item.title">
                     <div class="book-tag free-fiction">限免</div>
                 </div>
                 <div class="book-info">
-                    <h3 class="title">书籍名称</h3>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="book-item">
-                <div class="book-cover">
-                    <img src="http://cover.read.duokan.com/mfsv2/download/fdsc3/p018JfdElmhO/dXn0ucFVXpvWV4.jpg!s">
-                    <div class="book-tag free-fiction">限免</div>
-                </div>
-                <div class="book-info">
-                    <h3 class="title">书籍名称</h3>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="book-item">
-                <div class="book-cover">
-                    <img src="http://cover.read.duokan.com/mfsv2/download/fdsc3/p018JfdElmhO/dXn0ucFVXpvWV4.jpg!s">
-                    <div class="book-tag free-fiction">限免</div>
-                </div>
-                <div class="book-info">
-                    <h3 class="title">书籍名称</h3>
+                    <h3 class="title">{{item.data.title}}</h3>
                 </div>
             </div>
         </li>

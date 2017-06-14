@@ -1,8 +1,8 @@
 <div id="app_header" class="header-tab">
     <div class="swipe-tab swipe-tab_2 clearfix">
-        <a href="javascript:" class="swipe-tab_on">书城</a>
-        <a href="javascript:">书架</a>
-        <i style="transition-duration: 0s;transform: translate3d(0, 0, 0)"></i>
+        <a href="javascript:" @click="tabSwitch(0)" :class="tab_1_class">书城</a>
+        <a href="javascript:" @click="tabSwitch(1)" :class="tab_2_class">书架</a>
+        <i :style="{width:index_header_tab_width}"></i>
     </div>
     <i class="header-checkin"></i>
     <i class="header-user"></i>
